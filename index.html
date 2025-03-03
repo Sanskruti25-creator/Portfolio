@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            background-image: url('https://img.freepik.com/premium-photo/wide-angle-shot-single-tree-growing-clouded-sky-sunset-surrounded-by-grass_181624-22807.jpg?semt=ais_hybrid'); /* Add your image URL here */
+            background-size: cover; /* Ensures the background image covers the entire page */
+            background-position: center; /* Center the background image */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .bio-display {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .bio-display img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .bio-display p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .bio-display h3 {
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Personal Bio</h1>
+
+    <button id="getBio">Get User Information</button>
+    
+    <div class="bio-display">
+        <h3>Bio Information</h3>
+        <img src="#" alt="Profile Picture" id="profilePic">
+        <p><strong>Name: </strong><span id="nameDisplay"></span></p>
+        <p><strong>Profession: </strong><span id="professionDisplay"></span></p>
+        <p><strong>Bio: </strong><span id="bioDisplay"></span></p>
+    </div>
+</div>
+
+<script>
+    const getBioButton = document.getElementById('getBio');
+
+    getBioButton.addEventListener('click', function() {
+        // Prompt user for the required information
+        const name = prompt("Please enter your name:");
+        const profession = prompt("Please enter your profession:");
+        const bio = prompt("Tell us about yourself:");
+        const photoURL = prompt("Please enter the URL of your photo:");
+
+        // Check if the user provided all the necessary information
+        if (!name || !profession || !bio || !photoURL) {
+            alert("Please fill in all the fields.");
+            return;
+        }
+
+        // Display the collected information in the bio section
+        document.getElementById('nameDisplay').innerText = name;
+        document.getElementById('professionDisplay').innerText = profession;
+        document.getElementById('bioDisplay').innerText = bio;
+        document.getElementById('profilePic').src = photoURL;
+    });
+</script>
+
+</body>
+</html>
